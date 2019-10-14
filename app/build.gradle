@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.github.sinothk:AndroidUtils:2.x.1012'
 
     // -------------------------------------------------------------------
+    // https://github.com/gyf-dev/ImmersionBar
     // 基础依赖包，必须要依赖
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     // fragment快速实现（可选）
