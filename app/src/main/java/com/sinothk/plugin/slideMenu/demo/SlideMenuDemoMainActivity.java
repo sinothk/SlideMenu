@@ -97,6 +97,7 @@ public class SlideMenuDemoMainActivity extends AppCompatActivity implements View
 
         mPreferences = getPreferences(Context.MODE_PRIVATE);
         mEditor = mPreferences.edit();
+
         int isPic = mPreferences.getInt("Pic", 0);
         boolean isBlur = mPreferences.getBoolean("IsBlur", false);
         boolean isChangeBlur = mPreferences.getBoolean("IsChangeBlur", false);

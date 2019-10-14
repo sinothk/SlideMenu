@@ -2,7 +2,9 @@ package com.sinothk.plugin.slideMenu.demo;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +16,8 @@ public class SlideMenuDemo1MainActivity extends AppCompatActivity implements Vie
 
     SwipeMenu mMainSwipemenu;
     ImageButton mBtnMenu;
+    Button menuCloseBtn;
+
 
     @Override
     public void onBackPressed() {
@@ -34,7 +38,12 @@ public class SlideMenuDemo1MainActivity extends AppCompatActivity implements Vie
                     mMainSwipemenu.showMenu();
                 }
                 break;
+
+            case R.id.menuCloseBtn:
+                mMainSwipemenu.hideMenu();
+                break;
         }
+
     }
 
     @Override
@@ -44,12 +53,35 @@ public class SlideMenuDemo1MainActivity extends AppCompatActivity implements Vie
 
         ImmersionBar.with(this)
                 .keyboardEnable(true)
-                .navigationBarColor(R.color.colorPrimary)
+//                .navigationBarColor(R.color.colorPrimary)
                 .init();
 
         mMainSwipemenu = findViewById(R.id.main_swipemenu);
+        menuCloseBtn = findViewById(R.id.menuCloseBtn);
+
         mBtnMenu = findViewById(R.id.main_btn_menu);
 
         mBtnMenu.setOnClickListener(this);
+        menuCloseBtn.setOnClickListener(this);
+
+        mMainSwipemenu.setMenuOffset(0);
+
+        mMainSwipemenu.setBackgroundResource(R.color.red);
+
+
+//        changeStyleCode();
+//        mMainSwipemenu.setBackImage2(SlideMenuDemo1MainActivity.this, R.mipmap.dayu, R.color.transparent);
     }
+
+//    //更新风格代码
+//    public void changeStyleCode() {
+//        mStyleCode = mTransCode * 1000 + mScaleCode * 100 + mAlphaCode * 10 + mRotateCode;
+//        mMainSwipemenu.setStyleCode(mStyleCode);
+//    }
+//
+//    private int mStyleCode = 11111; //风格代码
+//    private int mTransCode = 1; //移动动画代码
+//    private int mScaleCode = 1; //缩放动画代码
+//    private int mAlphaCode = 1; //透明度动画代码
+//    private int mRotateCode = 1; //旋转动画代码
 }
