@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLightWhite"
     android:orientation="vertical">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_24"
+        android:background="@color/colorPrimary" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/main_btn_menu"
@@ -22,7 +24,7 @@
             android:layout_marginLeft="10dp"
             android:background="#00000000"
             android:scaleType="centerInside"
-            android:src="@mipmap/menu"/>
+            android:src="@mipmap/menu" />
 
         <TextView
             android:layout_width="0dp"
@@ -33,7 +35,7 @@
             android:gravity="center_vertical"
             android:text="多动画侧滑菜单演示"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -57,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="背景模糊"/>
+                android:text="背景模糊" />
 
             <RadioButton
                 android:id="@+id/content_rb_changeblur"
@@ -65,34 +67,33 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="动态模糊"/>
+                android:text="动态模糊" />
+
             <RadioButton
                 android:id="@+id/content_rb_reversechangeblur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="反向动态"/>
+                android:text="反向动态" />
         </RadioGroup>
 
         <CheckBox
             android:id="@+id/cb_pic"
-            style="@style/cb_theme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:gravity="center"
             android:text="Pic"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/content_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 

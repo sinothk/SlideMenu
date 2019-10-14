@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sinothk.android.utils.StatusBarUtil;
 import com.sinothk.plugin.slideMenu.view.SwipeMenu;
 
 import java.util.ArrayList;
@@ -58,6 +59,7 @@ public class SlideMenuDemoMainActivity extends AppCompatActivity implements View
 
     private void initView() {
         mMainSwipemenu = findViewById(R.id.main_swipemenu);
+
         mRgTrans = findViewById(R.id.menu_rg_trans);
         mCbScale = findViewById(R.id.menu_cb_scale);
         mSbScale = findViewById(R.id.menu_sb_scale);
@@ -73,9 +75,15 @@ public class SlideMenuDemoMainActivity extends AppCompatActivity implements View
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        StatusBarUtil.transparencyBar(this);
+
+//        ImmersionBar.with(this)
+//                .keyboardEnable(true)
+//                .navigationBarColor(R.color.colorPrimary)
+//                .init();
 
         mContext = this;
 
