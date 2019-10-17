@@ -41,4 +41,7 @@ dependencies {
     // kotlin扩展（可选）
     implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
     // -------------------------------------------------------------------
+
+    api 'com.github.sinothk:BannerView:3.x.1017'
+
 }

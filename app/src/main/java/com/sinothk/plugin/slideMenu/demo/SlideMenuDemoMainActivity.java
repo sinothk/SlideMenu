@@ -37,7 +37,6 @@ public class SlideMenuDemoMainActivity extends AppCompatActivity implements View
     RadioGroup mRgRotate;
     SeekBar mSbRotate;
     ImageButton mBtnMenu;
-    RecyclerView mContentRecyclerView;
     CheckBox mCbPic;
     RadioGroup mContentRgBlur;
 
@@ -68,7 +67,6 @@ public class SlideMenuDemoMainActivity extends AppCompatActivity implements View
         mRgRotate = findViewById(R.id.menu_rg_rotate);
         mSbRotate = findViewById(R.id.menu_Sb_rotate);
         mBtnMenu = findViewById(R.id.main_btn_menu);
-        mContentRecyclerView = findViewById(R.id.content_recyclerView);
         mCbPic = findViewById(R.id.cb_pic);
         mContentRgBlur = findViewById(R.id.content_rg_blur);
     }
@@ -190,8 +188,8 @@ public class SlideMenuDemoMainActivity extends AppCompatActivity implements View
             mTips.add("只要按照顶部显示的参数设置即可");
             mTips.add("建议中心旋转搭配透明度动画,否则会有明显卡顿");
             mTipAdapter = new TipAdapter();
-            mContentRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-            mContentRecyclerView.setAdapter(mTipAdapter);
+//            mContentRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+//            mContentRecyclerView.setAdapter(mTipAdapter);
         } else {
             mTipAdapter.notifyDataSetChanged();
         }
