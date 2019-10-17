@@ -12,7 +12,7 @@
 ## Step 2. Add the dependency
 
         dependencies {
-                implementation 'com.github.sinothk:SlideMenu:1.x.1015'
+                implementation 'com.github.sinothk:SlideMenu:2.x.1015'
         }
 
 # 使用
@@ -20,16 +20,17 @@
    主页：
    
     <?xml version="1.0" encoding="utf-8"?>
-    <com.sinothk.plugin.slideMenu.view.SwipeMenu xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/main_swipemenu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include layout="@layout/left_menu"/>
-
-        <include layout="@layout/right_content"/>
-
-    </com.sinothk.plugin.slideMenu.view.SwipeMenu>
+    <com.sinothk.plugin.slideMenu.SlideMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/mainSlideMenu"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/white"
+      app:slideMode="both">
+      <include layout="@layout/activity_side_menu_demo_main_left" />
+      <include layout="@layout/activity_side_menu_demo_main_r" />
+      <include layout="@layout/content_menu_content" />
+    </com.sinothk.plugin.slideMenu.SlideMenuLayout>
     
     菜单：left_menu
     
@@ -48,6 +49,7 @@
             super.onBackPressed();
         }
     }
+    
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -75,15 +77,10 @@
                 .init();
 
         mMainSwipemenu = findViewById(R.id.main_swipemenu);
-        menuCloseBtn = findViewById(R.id.menuCloseBtn);
-
-        mBtnMenu = findViewById(R.id.main_btn_menu);
-
-        mBtnMenu.setOnClickListener(this);
-        menuCloseBtn.setOnClickListener(this);
-
-        mMainSwipemenu.setMenuOffset(0);
-
-        mMainSwipemenu.setBackgroundResource(R.color.red);
+        mainSlideMenu = this.findViewById(R.id.mainSlideMenu);
+        mainSlideMenu.setSlideMode(SlideMenuAction.SLIDE_MODE_LEFT);
+        mainSlideMenu.setSlidePadding(120);
+        mainSlideMenu.setContentToggle(true);
+        mainSlideMenu.setAllowTogging(false);
     }
     
