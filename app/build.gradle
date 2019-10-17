@@ -44,4 +44,5 @@ dependencies {
 
     api 'com.github.sinothk:BannerView:3.x.1017'
 
+//    api 'com.justkiddingbaby:slidemenu:1.3.0'
 }

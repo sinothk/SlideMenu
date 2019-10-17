@@ -1,18 +1,17 @@
 package com.sinothk.plugin.slideMenu.demo;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.gyf.immersionbar.ImmersionBar;
-import com.sinothk.plugin.slideMenu.view.SwipeMenu;
+import com.sinothk.plugin.slideMenu.SlideMenuAction;
+import com.sinothk.plugin.slideMenu.SlideMenuLayout;
 import com.sinothk.widget.bannerView.style1.BannerView;
 import com.sinothk.widget.bannerView.style1.ext.BannerBean;
 import com.sinothk.widget.bannerView.style1.ext.BannerUtil;
@@ -20,56 +19,32 @@ import com.sinothk.widget.bannerView.style1.ext.BannerUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+public class SideMenuDemoMain2Activity extends AppCompatActivity {
 
-public class SlideMenuDemo1MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    SwipeMenu mMainSwipemenu;
-    ImageButton mBtnMenu;
-    Button menuCloseBtn;
-    @Override
-    public void onBackPressed() {
-        if (mMainSwipemenu.isMenuShowing()) {
-            mMainSwipemenu.hideMenu();
-        } else {
-            super.onBackPressed();
-        }
-    }
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.main_btn_menu:
-                if (mMainSwipemenu.isMenuShowing()) {
-                    mMainSwipemenu.hideMenu();
-                } else {
-                    mMainSwipemenu.showMenu();
-                }
-                break;
-            case R.id.menuCloseBtn:
-                mMainSwipemenu.hideMenu();
-                break;
-        }
-    }
+    SlideMenuLayout mainSlideMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.slide_menu_activity_main);
+        setContentView(R.layout.activity_side_menu_demo_main);
 
         ImmersionBar.with(this)
                 .keyboardEnable(true)
-//                .navigationBarColor(R.color.colorPrimary)
                 .init();
 
-        mMainSwipemenu = findViewById(R.id.main_swipemenu);
-        menuCloseBtn = findViewById(R.id.menuCloseBtn);
+        mainSlideMenu = this.findViewById(R.id.mainSlideMenu);
+        mainSlideMenu.setSlideMode(SlideMenuAction.SLIDE_MODE_LEFT);
+        mainSlideMenu.setSlidePadding(120);
+        mainSlideMenu.setContentToggle(true);
+        mainSlideMenu.setAllowTogging(false);
 
-        mBtnMenu = findViewById(R.id.main_btn_menu);
+        findViewById(R.id.main_btn_menu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainSlideMenu.openLeftSlide();
+            }
+        });
 
-        mBtnMenu.setOnClickListener(this);
-        menuCloseBtn.setOnClickListener(this);
-
-        mMainSwipemenu.setMenuOffset(0);
-        mMainSwipemenu.setBackgroundResource(R.color.red);
 
 
         initbannerView();
